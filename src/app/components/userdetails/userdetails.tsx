@@ -5,7 +5,7 @@ import Image from 'next/image';
 interface UserDetailsProps {
     data: any;
 }
-const defaultImg = 'https://officialdevfinder.netlify.app/images/octocat.jpg';
+const defaultImg = '/octocat.jpg';
 const UserDetails: React.FC<UserDetailsProps> = ({ data }) => {
 const formattedDate = data?.created_at ? new Date(data.created_at).toLocaleDateString('en-US', {
         day: 'numeric',

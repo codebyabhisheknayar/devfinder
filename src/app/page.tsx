@@ -10,7 +10,7 @@ const Home: React.FC = () => {
   const [inputValue, setInputValue] = useState('');
   const [suggestionData, setSuggestionData] = useState<any[]>([]);
   const [data, setData] = useState<any | null>(null);
-  const token = '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';
+  const token = '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';
 
   useEffect(() => {
     if (inputValue.trim() !== '') {

@@ -13,7 +13,7 @@ const SearchResultList: React.FC<SearchResultListProps> = ({ suggestionData, onS
             <li className='border-solid py-3 px-4 border-b-slate-700 border-b' key={index} onClick={() => onSuggestionClick(user)}>
                 <div className="flex items-center gap-3">
                     <div>
-                        <Image className="rounded-full w-12 h-12"
+                        <Image className="rounded-full border-2 border-slate-300 w-12 h-12"
                             src={user.avatar_url}
                             width={55}
                             height={55}

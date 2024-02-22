@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
     images: {
-        domains: ['avatars.githubusercontent.com','officialdevfinder.netlify.app'],
+        domains: ['avatars.githubusercontent.com'],
     },
 };
 

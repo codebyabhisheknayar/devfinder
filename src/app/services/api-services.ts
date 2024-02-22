@@ -2,7 +2,7 @@
 export const fetchSearchResults = async (value: string, token: string): Promise<any[]> => {
     try {
         if (value.trim() !== '') {
-            const limit = 10;
+            const limit = 7;
             const req = await fetch(`https://api.github.com/search/users?q=${value}&per_page=${limit}`, {
                 headers: {
                     Authorization: `Bearer ${token}`,
