@@ -10,17 +10,17 @@ const Home: React.FC = () => {
   const [inputValue, setInputValue] = useState('');
   const [suggestionData, setSuggestionData] = useState<any[]>([]);
   const [data, setData] = useState<any | null>(null);
-  const token = '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';
+  // const token = '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';
 
   useEffect(() => {
     if (inputValue.trim() !== '') {
-      fetchSearchResults(inputValue, token)
+      fetchSearchResults(inputValue)
         .then(results => setSuggestionData(results))
         .catch(error => console.error('Error fetching search results:', error));
     } else {
       setSuggestionData([]);
     }
-  }, [inputValue, token]);
+  }, [inputValue]);
 
   const handleInputChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const inputValue = e.target.value;
@@ -30,7 +30,7 @@ const Home: React.FC = () => {
   const handleSuggestionClick = (user: any) => {
     setInputValue(user.login);
     setSuggestionData([]);
-    fetchUserData(user.login, token)
+    fetchUserData(user.login)
       .then(userData => setData(userData))
       .catch(error => console.error('Error fetching user data:', error));
   };
@@ -40,7 +40,7 @@ const Home: React.FC = () => {
     setSuggestionData([]);
 
     if (inputValue.trim() !== '') {
-      await fetchUserData(inputValue, token)
+      await fetchUserData(inputValue)
         .then(userData => setData(userData))
         .catch(error => console.error('Error fetching user data:', error));
     }
