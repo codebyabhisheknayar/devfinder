@@ -2,7 +2,7 @@
 
 const nextConfig = {
     output: 'export',
-    distDir: 'dist',
+    distDir: 'docs',
     assetPrefix: "https://codebyabhisheknayar.github.io/devfinder",
     images: {
         unoptimized: true,
