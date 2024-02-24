@@ -8,7 +8,7 @@
     "start": "next start",
     "lint": "next lint",
     "build-static": "next build && npm run build-static-repair-index",
-    "build-static-repair-index": "replace-in-files --string \"/_next/static\" --replacement \"/_next/static\" docs/index.html"
+    "build-static-repair-index": "replace-in-files --string \"/_next/static\" --replacement \"./_next/static\" docs/index.html"
   },
   "dependencies": {
     "lucide-react": "^0.338.0",
