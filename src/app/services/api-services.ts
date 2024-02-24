@@ -2,7 +2,7 @@
 export const fetchSearchResults = async (value: string): Promise<any[]> => {
     try {
         if (value.trim() !== '') {
-            const limit = 7;
+            const limit = 5;
             const req = await fetch(`https://api.github.com/search/users?q=${value}&per_page=${limit}`);
 
             if (!req.ok) {
@@ -15,7 +15,6 @@ export const fetchSearchResults = async (value: string): Promise<any[]> => {
             return [];
         }
     } catch (error) {
-        console.error('Error fetching search results:', error);
         throw error;
     }
 };
@@ -30,7 +29,6 @@ export const fetchUserData = async (username: string): Promise<any | null> => {
 
         return await req.json();
     } catch (error) {
-        console.error('Error fetching user data:', error);
         return null;
     }
 };

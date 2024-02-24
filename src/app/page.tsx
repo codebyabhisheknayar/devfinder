@@ -17,11 +17,6 @@ const Home: React.FC = () => {
   const [data, setData] = useState<any | null>(null);
   const [error, setError] = useState<string | null>(null);
 
-  const handleApiError = (error: any) => {
-    if (error) {
-      setError('An error occurred while fetching data. Please try again later.');
-    }
-  };
 
   const fetchSearchResultsDebounced = useCallback(
     debounce(async (value: string) => {
@@ -35,8 +30,8 @@ const Home: React.FC = () => {
       } else {
         setSuggestionData([]);
       }
-    }, 300),
-    [fetchSearchResults, setSuggestionData, handleApiError]
+    }, 500),
+    []
   );
 
   useEffect(() => {
@@ -48,17 +43,16 @@ const Home: React.FC = () => {
     setInputValue(inputValue);
   };
 
-  const handleSuggestionClick = async (user: any) => {
+  const handleSuggestionClick = (user: any) => {
     setInputValue(user.login);
     setSuggestionData([]);
     setError(null);
-    try {
-      const userData = await fetchUserData(user.login);
-      setData(userData);
-    } catch (error) {
-      console.error('Error fetching user data:', error);
-      handleApiError(error);
-    }
+    fetchUserData(user.login)
+      .then(userData => setData(userData))
+      .catch(error => {
+        console.error('Error fetching user data:', error);
+        handleApiError(error);
+      });
   };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -66,13 +60,12 @@ const Home: React.FC = () => {
     setSuggestionData([]);
     setError(null);
     if (inputValue.trim() !== '') {
-      try {
-        const userData = await fetchUserData(inputValue);
-        setData(userData);
-      } catch (error) {
-        console.error('Error fetching user data:', error);
-        handleApiError(error);
-      }
+      await fetchUserData(inputValue)
+        .then(userData => setData(userData))
+        .catch(error => {
+          console.error('Error fetching user data:', error);
+          handleApiError(error);
+        });
     }
   };
 
@@ -85,7 +78,11 @@ const Home: React.FC = () => {
     };
   }
 
-
+  const handleApiError = (error: any) => {
+    if (error) {
+      setError('An error occurred while fetching data. Please try again later.');
+    }
+  };
 
   return (
     <main className="flex h-screen max-w-2xl mx-auto  items-center justify-center">
