@@ -9,7 +9,17 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        primary: '#141d2e',
+        primary: 'rgb(var(--primary)/ <alpha-value>)',
+        secondary: 'rgb(var(--secondary))',
+        accent: 'rgb(var(--accent)/ <alpha-value>)',
+        gray: {
+          50: 'rgb(var(--slate-white)),'
+        },
+        slate: {
+          300: 'rgb(var(--slate-light))',
+        },
+        background: 'rgb(var(--background))',
+        white: 'rgb(var(--white))',  
         blue: {
           DEFAULT: '#07f'
         }

@@ -8,9 +8,10 @@ interface SearchResultListProps {
 }
 
 const SearchResultList: React.FC<SearchResultListProps> = ({ suggestionData, onSuggestionClick }) => (
-    <ul className="suggestions absolute w-full bg-[#0b1835] text-slate-300">
+    <ul className="suggestions z-10 absolute w-full bg-accent text-slate-300">
         {suggestionData && suggestionData.length > 0 && suggestionData.map((user, index) => (
-            <li className='border-solid py-3 px-4 border-b-slate-700 border-b' key={index} onClick={() => onSuggestionClick(user)}>
+            <li className='cursor-pointer hover:bg-blue border-solid py-3 px-4 border-b-secondary hover:text-slate-50 border-b' key={index} onClick={() => onSuggestionClick(user)}
+            >
                 <div className="flex items-center gap-3">
                     <div>
                         <Image className="rounded-full border-2 border-slate-300 w-12 h-12"
@@ -19,9 +20,9 @@ const SearchResultList: React.FC<SearchResultListProps> = ({ suggestionData, onS
                             height={55}
                             alt={user?.login}></Image>
                     </div>
-                    <div className='text-slate-300'>{user.login}</div>
+                    <div>{user.login}</div>
                 </div>
-              
+
             </li>
         ))}
     </ul>

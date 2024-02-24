@@ -1,13 +1,9 @@
 // services/GitHubService.ts
-export const fetchSearchResults = async (value: string, token: string): Promise<any[]> => {
+export const fetchSearchResults = async (value: string): Promise<any[]> => {
     try {
         if (value.trim() !== '') {
             const limit = 7;
-            const req = await fetch(`https://api.github.com/search/users?q=${value}&per_page=${limit}`, {
-                headers: {
-                    Authorization: `Bearer ${token}`,
-                },
-            });
+            const req = await fetch(`https://api.github.com/search/users?q=${value}&per_page=${limit}`);
 
             if (!req.ok) {
                 throw new Error(`HTTP error! Status: ${req.status}`);
@@ -20,17 +16,13 @@ export const fetchSearchResults = async (value: string, token: string): Promise<
         }
     } catch (error) {
         console.error('Error fetching search results:', error);
-        return [];
+        throw error;
     }
 };
 
-export const fetchUserData = async (username: string, token: string): Promise<any | null> => {
+export const fetchUserData = async (username: string): Promise<any | null> => {
     try {
-        const req = await fetch(`https://api.github.com/users/${username}`, {
-            headers: {
-                Authorization: `Bearer ${token}`,
-            },
-        });
+        const req = await fetch(`https://api.github.com/users/${username}`);
 
         if (!req.ok) {
             throw new Error(`HTTP error! Status: ${req.status}`);
