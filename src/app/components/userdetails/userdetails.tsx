@@ -15,7 +15,7 @@ const formattedDate = data?.created_at ? new Date(data.created_at).toLocaleDateS
 
     return (
         <div className="wrap-card mt-4 text-gray-50">
-            <div className="rounded bg-secondary dark:bg-white p-12">
+            <div className="rounded bg-secondary dark:bg-white p-6 lg:p-12">
                 <div className="profile-info flex justify-start gap-12 items-center">
                     <div className="profile-pic">
                         <Image priority
@@ -56,8 +56,8 @@ const formattedDate = data?.created_at ? new Date(data.created_at).toLocaleDateS
                 </div>
                 <div className="profile-link mt-6">
                     <div className="grid grid-cols-2 gap-4">
-                        <div className="flex gap-2">
-                            <div className={data?.location ? '' : 'opacity-40'}>
+                        <div className={data?.location ? 'flex gap-2' : 'opacity-40 flex gap-2 cursor-not-allowed'}>
+                            <div>
                                 <svg className="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
                                     <path fillRule="evenodd" d="M12 2a8 8 0 0 1 6.6 12.6l-.1.1-.6.7-5.1 6.2a1 1 0 0 1-1.6 0L6 15.3l-.3-.4-.2-.2v-.2A8 8 0 0 1 11.8 2Zm3 8a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" clipRule="evenodd" />
                                 </svg>
@@ -65,16 +65,16 @@ const formattedDate = data?.created_at ? new Date(data.created_at).toLocaleDateS
                             </div>
                             <div className="text-sm text-slate-300">{data?.location ? data.location : 'Not Available'}</div>
                         </div>
-                        <div className="flex gap-2">
-                            <div className={data?.twitter_username ? '' : 'opacity-40'}>
+                        <div className={data?.twitter_username ? 'flex gap-2' : 'opacity-40 flex gap-2 cursor-not-allowed'}>
+                            <div>
                                 <svg className="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
                                     <path fillRule="evenodd" d="M22 5.9c-.7.3-1.5.5-2.4.6a4 4 0 0 0 1.8-2.2c-.8.5-1.6.8-2.6 1a4.1 4.1 0 0 0-6.7 1.2 4 4 0 0 0-.2 2.5 11.7 11.7 0 0 1-8.5-4.3 4 4 0 0 0 1.3 5.4c-.7 0-1.3-.2-1.9-.5a4 4 0 0 0 3.3 4 4.2 4.2 0 0 1-1.9.1 4.1 4.1 0 0 0 3.9 2.8c-1.8 1.3-4 2-6.1 1.7a11.7 11.7 0 0 0 10.7 1A11.5 11.5 0 0 0 20 8.5V8a10 10 0 0 0 2-2.1Z" clipRule="evenodd" />
                                 </svg>
                             </div>
                             <div className="text-sm text-slate-300">{data?.twitter_username ? data.twitter_username : 'Not Available'}</div>
                         </div>
-                        <div className="flex gap-2">
-                            <div className={data?.blog ? '' : 'opacity-40'}>
+                        <div className={data?.blog ? 'flex gap-2' : 'opacity-40 flex gap-2 cursor-not-allowed'}>
+                            <div>
                                 <svg className="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                                     <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13.2 9.8a3.4 3.4 0 0 0-4.8 0L5 13.2A3.4 3.4 0 0 0 9.8 18l.3-.3m-.3-4.5a3.4 3.4 0 0 0 4.8 0L18 9.8A3.4 3.4 0 0 0 13.2 5l-1 1" />
                                 </svg>
@@ -83,8 +83,8 @@ const formattedDate = data?.created_at ? new Date(data.created_at).toLocaleDateS
                                 <a className='break-all hover:text-blue cursor-pointer' href={data?.blog ? data.blog : '#'}>{data?.blog ? data.blog : 'Not Available'}</a></div>
                         </div>
 
-                        <div className="flex gap-2">
-                            <div className={data?.company ? '' : 'opacity-40'}>
+                        <div className={data?.company ? 'flex gap-2' : 'opacity-40 flex gap-2 cursor-not-allowed'}>
+                            <div>
                                 <svg className="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                                     <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 4h12M6 4v16M6 4H5m13 0v16m0-16h1m-1 16H6m12 0h1M6 20H5M9 7h1v1H9V7Zm5 0h1v1h-1V7Zm-5 4h1v1H9v-1Zm5 0h1v1h-1v-1Zm-3 4h2a1 1 0 0 1 1 1v4h-4v-4a1 1 0 0 1 1-1Z" />
                                 </svg>

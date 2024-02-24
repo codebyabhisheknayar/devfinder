@@ -85,8 +85,8 @@ const Home: React.FC = () => {
   };
 
   return (
-    <main className="flex h-screen max-w-2xl mx-auto  items-center justify-center">
-      <div className="w-full flex-col justify-between p-2">
+    <main className="flex h-fit lg:h-screen  max-w-2xl mx-auto  items-center justify-center">
+      <div className="w-full flex-col justify-between p-2 px-4">
       <div className="logo mb-5 flex items-center justify-between">
         <div className='font-bold text-xl text-white'>
           devfinder
