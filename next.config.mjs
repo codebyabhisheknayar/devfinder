@@ -2,9 +2,8 @@
 
 const nextConfig = {
     output: 'export',
-    basePath: '.',
     distDir: 'dist',
-    assetPrefix: ".",
+    assetPrefix: "https://codebyabhisheknayar.github.io/devfinder",
     images: {
         unoptimized: true,
         domains: ['avatars.githubusercontent.com'],
