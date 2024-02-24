@@ -8,7 +8,6 @@ const ThemeSwitcher: React.FC = () => {
     const [mounted, setMounted] = useState(false);
 
     useEffect(() => {
-        console.log(theme);
     }, [theme]);
 
     useEffect(() => {
