@@ -2,7 +2,7 @@
 
 const nextConfig = {
     output: 'export',
-    basePath: '/devfinder',
+    basePath: '.',
     distDir: 'dist',
     assetPrefix: ".",
     images: {
