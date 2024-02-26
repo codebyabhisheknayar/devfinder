@@ -1,1 +1,0 @@
-self.__NEXT_FONT_MANIFEST="{\"pages\":{},\"app\":{\"/Users/apple/Documents/Abhishek/Personal/Work/Personal/git-user-search/devfinder/src/app/layout\":[\"static/media/0cf0e55cc0ef3777-s.p.woff2\",\"static/media/87efa1b92b3900d1-s.p.woff2\"]},\"appUsingSizeAdjust\":true,\"pagesUsingSizeAdjust\":false}"
