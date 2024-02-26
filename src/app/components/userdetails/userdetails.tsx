@@ -17,7 +17,7 @@ const formattedDate = data?.created_at ? new Date(data.created_at).toLocaleDateS
         <div className="wrap-card mt-4 text-gray-50">
             <div className="rounded bg-secondary dark:bg-white p-6 lg:p-12">
                 <div className="profile-info flex justify-start gap-12 items-center">
-                    <div className="profile-pic">
+                    <div className="profile-pic border-2 border-solid border-primary">
                         <Image priority
                             className="rounded-full w-24 h-24"
                             src={data?.avatar_url ? data.avatar_url : defaultImg}
