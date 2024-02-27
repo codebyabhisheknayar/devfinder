@@ -16,11 +16,11 @@ const Home: React.FC = () => {
   const [suggestionData, setSuggestionData] = useState<any[]>([]);
   const [data, setData] = useState<any | null>(null);
   const [error, setError] = useState<string | null>(null);
-
+  const [selectedUser, setSelectedUser] = useState<string | null>(null);
 
   const fetchSearchResultsDebounced = useCallback(
     debounce(async (value: string) => {
-      if (value.trim() !== '') {
+      if (value.trim() !== '' && (!selectedUser || value !== selectedUser)) {
         try {
           const results = await fetchSearchResults(value);
           setSuggestionData(results);
@@ -31,7 +31,7 @@ const Home: React.FC = () => {
         setSuggestionData([]);
       }
     }, 500),
-    []
+    [selectedUser]
   );
 
   useEffect(() => {
@@ -47,6 +47,7 @@ const Home: React.FC = () => {
     setInputValue(user.login);
     setSuggestionData([]);
     setError(null);
+    setSelectedUser(user.login);
     fetchUserData(user.login)
       .then(userData => setData(userData))
       .catch(error => {
@@ -87,23 +88,23 @@ const Home: React.FC = () => {
   return (
     <main className="flex h-fit lg:h-screen  max-w-2xl mx-auto  items-center justify-center">
       <div className="w-full flex-col justify-between p-2 px-4">
-      <div className="logo mb-5 flex items-center justify-between">
-        <div className='font-bold text-xl text-white'>
-          devfinder
+        <div className="logo mb-5 flex items-center justify-between">
+          <div className='font-bold text-xl text-white'>
+            devfinder
+          </div>
+          <div>
+            <ThemeSwitcher />
+          </div>
         </div>
-        <div>
-          <ThemeSwitcher />
-        </div>
-      </div>
-      <div className='w-full relative'>
-        <SearchForm
-          inputValue={inputValue}
-          onInputChange={handleInputChange}
-          onSubmit={handleSubmit}
-        />
-        {error && <div className='text-md text-red-500 '>{error}</div>}
-        <SearchResultList suggestionData={suggestionData} onSuggestionClick={handleSuggestionClick} />
-        <UserDetails data={data} />
+        <div className='w-full relative'>
+          <SearchForm
+            inputValue={inputValue}
+            onInputChange={handleInputChange}
+            onSubmit={handleSubmit}
+          />
+          {error && <div className='text-md text-red-500 '>{error}</div>}
+          <SearchResultList suggestionData={suggestionData} onSuggestionClick={handleSuggestionClick} />
+          <UserDetails data={data} />
         </div>
       </div>
     </main>
