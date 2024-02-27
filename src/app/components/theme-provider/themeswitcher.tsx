@@ -25,7 +25,7 @@ const ThemeSwitcher: React.FC = () => {
 
         return (
             <button onClick={toggleTheme} className='flex text-xs items-center gap-1 font-medium'>
-                {theme === 'light' ? (
+                {theme !== 'light' ? (
                     <>
                         <span>LIGHT</span>
                         <Sun className="h-[1.2rem] ml-1 w-[1.2rem]" />
