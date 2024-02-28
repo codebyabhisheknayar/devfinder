@@ -15,7 +15,7 @@ const formattedDate = data?.created_at ? new Date(data.created_at).toLocaleDateS
 
     return (
         <div className="wrap-card mt-4 text-gray-50">
-            <div className="rounded bg-secondary dark:bg-white p-6 lg:p-12">
+            <div className="rounded bg-secondary p-6 lg:p-12">
                 <div className="profile-info flex justify-start gap-12 items-center">
                     <div className="profile-pic border-4 rounded-full border-solid border-[#5f78a2]">
                         <Image priority
